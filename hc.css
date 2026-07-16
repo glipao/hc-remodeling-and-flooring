@@ -1,0 +1,401 @@
+/* Base Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* 1. Header Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0070f3;
+}
+
+/* 2. Hero Section (Static & Minimalist) */
+.hero-section {
+    height: 90vh;
+    /* Static image with a 40% dark overlay for high text contrast */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Images/HCCover.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: flex-start; /* Aligns the content card to the left */
+    align-items: center;         /* Keeps it centered vertically */
+    padding: 0 8%;               /* Matches the side alignment of your Navbar */
+    color: #fff;
+    border-top: 5px solid #1d3a55; 
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 5;
+    text-align: left; /* Aligns all text inside to the left */
+    /* Removed the white frosted card wrapper for a clean, floating text look */
+}
+
+/* Typography styles inside the card */
+.hero-content h1 {
+    font-size: 56px; /* Slightly larger for a bold, editorial statement */
+    font-weight: 700;
+    color: #ffffff; 
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: #f0f0f0;
+    margin-bottom: 35px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: #0070f3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.hero-btn:hover {
+    background-color: #0051b3;
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* 3. Persistent Floating Button */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff4757;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    z-index: 9999; /* Ensures it stays on top of everything else */
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.floating-btn:hover {
+    background-color: #ff2a3b;
+    transform: scale(1.05); /* Slight pop effect on hover */
+}
+
+/* Dummy content spacing for testing the scroll */
+.content-section {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.spacer {
+    height: 600px; /* Forces page length to test scrolling */
+}
+
+/* 4. Services Offered Section */
+.services-section {
+    padding: 100px 8%;
+    background-color: #ffffff;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* Container holds the rows stacked vertically */
+.services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Large space between each service block */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Individual Service Row Setup */
+.service-row {
+    display: flex;
+    align-items: center; /* Centers text vertically next to your image */
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* MAGIC INGREDIENT: Reverses the direction of the SECOND row automatically */
+.service-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Box sizes */
+.service-image-box, .service-text-box {
+    flex: 1;
+}
+
+/* Each service-image-box becomes a carousel: the box shows a cycling
+   background-image, while the original <img> is visually hidden
+   (kept in the DOM for accessibility/alt text) */
+.service-image-box {
+    width: 100%;
+    max-width: 400px;
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Hide the static <img> visually but keep it accessible to screen readers */
+.service-img {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Carousel 1: Home Remodeling + Flooring */
+.service-row:nth-child(1) .service-image-box {
+    animation: serviceCarousel1 12s infinite;
+}
+
+@keyframes serviceCarousel1 {
+    0%, 30% {
+        background-image: url(Images/Home1.jpg);
+    }
+    35%, 65% {
+        background-image: url(Images/Home2.jpg);
+    }
+    70%, 100% {
+        background-image: url(Images/Home3.jpg);
+    }
+}
+
+/* Carousel 2: Office Remodeling + Flooring */
+.service-row:nth-child(2) .service-image-box {
+    animation: serviceCarousel2 12s infinite;
+}
+
+@keyframes serviceCarousel2 {
+    0%, 30% {
+        background-image: url(Images/Office1.jpg);
+    }
+    35%, 65% {
+        background-image: url(Images/Office2.jpg);
+    }
+    70%, 100% {
+        background-image: url(Images/Office3.jpg);
+    }
+}
+
+/* Carousel 3: Commercial Spaces Remodeling + Flooring */
+.service-row:nth-child(3) .service-image-box {
+    animation: serviceCarousel3 12s infinite;
+}
+
+@keyframes serviceCarousel3 {
+    0%, 30% {
+        background-image: url(Images/Comm1.jpg);
+    }
+    35%, 65% {
+        background-image: url(Images/Comm2.jpg);
+    }
+    70%, 100% {
+        background-image: url(Images/Comm3.jpg);
+    }
+}
+
+/* Text Content within rows */
+.service-text-box h3 {
+    font-size: 28px;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.service-text-box p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Thin plain divider between the description and the specifics list */
+.service-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Inline, dot-separated list of specifics (e.g. Living Room • Kitchen • Bathroom) */
+.service-specifics {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.service-specifics li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service-specifics li:not(:last-child)::after {
+    content: "•";
+    margin-left: 8px;
+    color: #ff4757; /* Matches the accent color used elsewhere on the page */
+}
+
+/* Mobile Responsiveness: Stacks nicely on phones */
+@media (max-width: 768px) {
+    .service-row, .service-row:nth-child(even) {
+        flex-direction: column; /* Force everything to stack linearly on mobile */
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .service-image-box {
+        height: 400px; /* Scales down carousel height slightly on mobile screen frames */
+    }
+}
+
+/* 5. About Section */
+.about-section {
+    padding: 100px 8%;
+    background-color: #f9f9f9; /* Slightly off-white to contrast against the services section */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Text Column Configuration */
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text span {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ff4757; /* Matches the vibrant red color accent of the floating button */
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    color: #111;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.about-text p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Image Column Configuration */
+.about-image-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    object-fit: cover; /* Crops the image neatly without distorting it */
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile Responsiveness: Stacks columns on smaller screens */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column-reverse; /* Puts text on top, image on bottom for mobile */
+        gap: 40px;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-img {
+        height: 300px;
+    }
+}
