@@ -606,7 +606,7 @@ body {
 }
 
 /* ==========================================================================
-   Dynamic Recommendation Planner Styles
+   Dynamic Recommendation Planner Styles (No Prices)
    ========================================================================== */
 .recommendation-section {
     padding: 100px 8%;
@@ -695,7 +695,7 @@ body {
 }
 
 .result-card {
-    background-color: #1d3a55; /* Perfectly matches your direct contact dark theme */
+    background-color: #1d3a55; 
     color: #ffffff;
     padding: 45px;
     border-radius: var(--border-radius);
@@ -708,7 +708,7 @@ body {
 .package-badge {
     align-self: flex-start;
     background: rgba(255, 255, 255, 0.15);
-    color: #38bdf8; /* High-contrast crisp sky blue used on contact info hover */
+    color: #38bdf8; 
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 700;
@@ -721,7 +721,31 @@ body {
 .result-card h3 {
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.tier-status-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent-color);
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 25px;
+}
+
+.status-label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.status-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 2px;
 }
 
 .package-desc {
@@ -729,36 +753,6 @@ body {
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 30px;
-}
-
-.price-box {
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid var(--accent-color);
-    padding: 20px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 30px;
-}
-
-.price-label {
-    display: block;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #94a3b8;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.price-amount {
-    font-size: 32px;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 2px 0 6px 0;
-}
-
-.price-note {
-    font-size: 11px;
-    color: #94a3b8;
-    display: block;
 }
 
 .package-includes h4 {
@@ -784,7 +778,7 @@ body {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #00b574; /* Professional success green match */
+    color: #00b574; 
     font-weight: 700;
 }
 
@@ -806,7 +800,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Quick Micro-interaction fade class */
 .animate-fade {
     animation: plannerFade 0.4s ease-out;
 }
@@ -816,7 +809,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Alignment */
 @media (max-width: 991px) {
     .planner-container {
         flex-direction: column;
