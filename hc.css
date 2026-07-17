@@ -1,401 +1,825 @@
-/* Base Resets */
+/* ==========================================================================
+   Base Resets & CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+    --primary-color: #0070f3;
+    --primary-hover: #0051b3;
+    --accent-color: #ff4757;
+    --accent-hover: #ff2a3b;
+    --text-dark: #1a1a1a;
+    --text-muted: #5a5a5a;
+    
+    /* SECTION CONTRAST THEMEING VARIABLES */
+    --bg-white-section: #ffffff;
+    --bg-alt-section: #f4f6f9; /* Sophisticated light slate-gray alternate block */
+    
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --border-radius: 12px;
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--bg-white-section);
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
-/* 1. Header Navigation */
+/* Section Coloring Utility Framework classes */
+.bg-white {
+    background-color: var(--bg-white-section);
+}
+
+.bg-alt {
+    background-color: var(--bg-alt-section);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 8%;
+    padding: 10px 8%;
     background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 80px;
 }
 
 .logo img {
     height: 60px;
     width: auto;
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
 }
 
 .nav-links a:hover {
-    color: #0070f3;
+    color: var(--primary-color);
 }
 
-/* 2. Hero Section (Static & Minimalist) */
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
 .hero-section {
-    height: 90vh;
-    /* Static image with a 40% dark overlay for high text contrast */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Images/HCCover.png');
+    height: 80vh;
+    background: url('Images/DFWCover.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
     display: flex;
-    justify-content: flex-start; /* Aligns the content card to the left */
-    align-items: center;         /* Keeps it centered vertically */
-    padding: 0 8%;               /* Matches the side alignment of your Navbar */
-    color: #fff;
+    justify-content: flex-start; 
+    align-items: center;         
+    padding: 0 8%;               
     border-top: 5px solid #1d3a55; 
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 650px;
     z-index: 5;
-    text-align: left; /* Aligns all text inside to the left */
-    /* Removed the white frosted card wrapper for a clean, floating text look */
 }
 
-/* Typography styles inside the card */
 .hero-content h1 {
-    font-size: 56px; /* Slightly larger for a bold, editorial statement */
-    font-weight: 700;
-    color: #ffffff; 
-    margin-bottom: 15px;
-    line-height: 1.2;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: clamp(38px, 5vw, 64px); 
+    font-weight: 800;
+    color: #111; 
+    margin-bottom: 12px;
+    line-height: 1.1;
+    letter-spacing: -1px;
 }
 
 .hero-content p {
-    font-size: 20px;
-    color: #f0f0f0;
-    margin-bottom: 35px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 30px;
 }
 
 .hero-btn {
     display: inline-block;
-    padding: 14px 35px;
-    background-color: #0070f3;
+    padding: 16px 36px;
+    background-color: var(--primary-color);
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
+    border-radius: 30px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(0, 112, 243, 0.25);
+    transition: var(--transition-smooth);
 }
 
 .hero-btn:hover {
-    background-color: #0051b3;
-    transform: translateY(-2px); /* Subtle lift on hover */
+    background-color: var(--primary-hover);
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0, 112, 243, 0.35);
 }
 
-/* 3. Persistent Floating Button */
-.floating-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #ff4757;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
-    z-index: 9999; /* Ensures it stays on top of everything else */
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-.floating-btn:hover {
-    background-color: #ff2a3b;
-    transform: scale(1.05); /* Slight pop effect on hover */
-}
-
-/* Dummy content spacing for testing the scroll */
-.content-section {
-    padding: 60px 8%;
-    text-align: center;
-}
-
-.spacer {
-    height: 600px; /* Forces page length to test scrolling */
-}
-
-/* 4. Services Offered Section */
-.services-section {
+/* ==========================================================================
+   Gallery Showcase
+   ========================================================================== */
+.gallery-section {
     padding: 100px 8%;
-    background-color: #ffffff;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .section-header h2 {
-    font-size: 36px;
-    color: #111;
+    font-size: clamp(28px, 4vw, 40px);
+    color: var(--text-dark);
     margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .section-header p {
-    color: #666;
-    font-size: 18px;
+    color: var(--text-muted);
+    font-size: clamp(16px, 1.5vw, 18px);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Container holds the rows stacked vertically */
-.services-container {
+.gallery-container {
     display: flex;
     flex-direction: column;
-    gap: 100px; /* Large space between each service block */
+    gap: 80px; 
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Individual Service Row Setup */
-.service-row {
+.gallery-row {
     display: flex;
-    align-items: center; /* Centers text vertically next to your image */
+    align-items: center; 
     justify-content: space-between;
     gap: 60px;
 }
 
-/* MAGIC INGREDIENT: Reverses the direction of the SECOND row automatically */
-.service-row:nth-child(even) {
+.gallery-row:nth-child(even) {
     flex-direction: row-reverse;
 }
 
-/* Box sizes */
-.service-image-box, .service-text-box {
+.gallery-image-box, .gallery-text-box {
     flex: 1;
+    width: 100%;
 }
 
-/* Each service-image-box becomes a carousel: the box shows a cycling
-   background-image, while the original <img> is visually hidden
-   (kept in the DOM for accessibility/alt text) */
-.service-image-box {
-    width: 100%;
-    max-width: 400px;
-    height: 550px;
-    margin: 0 auto;
-    border-radius: 16px;
+.gallery-image-box {
+    position: relative;
+    height: 420px;
+    border-radius: var(--border-radius);
     box-shadow: 0 15px 35px rgba(0,0,0,0.06);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    transition: var(--transition-smooth);
+    background-color: #ddd;
 }
 
-/* Hide the static <img> visually but keep it accessible to screen readers */
-.service-img {
+.carousel-overlay {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.05), transparent);
 }
 
-/* Carousel 1: Home Remodeling + Flooring */
-.service-row:nth-child(1) .service-image-box {
-    animation: serviceCarousel1 12s infinite;
-}
+/* Carousel Animations */
+.slide-living-room { animation: serviceCarousel1 15s infinite ease-in-out; }
+.slide-bedroom { animation: serviceCarousel2 15s infinite ease-in-out; }
+.slide-kitchen { animation: serviceCarousel3 10s infinite ease-in-out; }
 
 @keyframes serviceCarousel1 {
-    0%, 30% {
-        background-image: url(Images/Home1.jpg);
-    }
-    35%, 65% {
-        background-image: url(Images/Home2.jpg);
-    }
-    70%, 100% {
-        background-image: url(Images/Home3.jpg);
-    }
+    0%, 28% { background-image: url('Images/LR1.jpeg'); }
+    33%, 61% { background-image: url('Images/LR2.jpeg'); }
+    66%, 100% { background-image: url('Images/LR3.jpeg'); }
 }
-
-/* Carousel 2: Office Remodeling + Flooring */
-.service-row:nth-child(2) .service-image-box {
-    animation: serviceCarousel2 12s infinite;
-}
-
 @keyframes serviceCarousel2 {
-    0%, 30% {
-        background-image: url(Images/Office1.jpg);
-    }
-    35%, 65% {
-        background-image: url(Images/Office2.jpg);
-    }
-    70%, 100% {
-        background-image: url(Images/Office3.jpg);
-    }
+    0%, 28% { background-image: url('Images/BR1.jpeg'); }
+    33%, 61% { background-image: url('Images/BR2.jpeg'); }
+    66%, 100% { background-image: url('Images/BR3.jpeg'); }
 }
-
-/* Carousel 3: Commercial Spaces Remodeling + Flooring */
-.service-row:nth-child(3) .service-image-box {
-    animation: serviceCarousel3 12s infinite;
-}
-
 @keyframes serviceCarousel3 {
-    0%, 30% {
-        background-image: url(Images/Comm1.jpg);
-    }
-    35%, 65% {
-        background-image: url(Images/Comm2.jpg);
-    }
-    70%, 100% {
-        background-image: url(Images/Comm3.jpg);
-    }
+    0%, 45% { background-image: url('Images/K1.jpeg'); }
+    55%, 100% { background-image: url('Images/K2.jpeg'); }
 }
 
-/* Text Content within rows */
-.service-text-box h3 {
-    font-size: 28px;
-    color: #111;
+.category-tag {
+    display: inline-block;
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.gallery-text-box h3 {
+    font-size: clamp(22px, 3vw, 28px);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.gallery-text-box p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Core Services
+   ========================================================================== */
+.services-section {
+    padding: 100px 8%;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px; 
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+    border-top: 4px solid var(--primary-color);
+    border-left: 1px solid rgba(0,0,0,0.02);
+    border-right: 1px solid rgba(0,0,0,0.02);
+    border-bottom: 1px solid rgba(0,0,0,0.02);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.service-icon {
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
-.service-text-box p {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.8;
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
-/* Thin plain divider between the description and the specifics list */
-.service-divider {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 20px 0;
-}
-
-/* Inline, dot-separated list of specifics (e.g. Living Room • Kitchen • Bathroom) */
-.service-specifics {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    color: #555;
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.service-specifics li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.service-specifics li:not(:last-child)::after {
-    content: "•";
-    margin-left: 8px;
-    color: #ff4757; /* Matches the accent color used elsewhere on the page */
-}
-
-/* Mobile Responsiveness: Stacks nicely on phones */
-@media (max-width: 768px) {
-    .service-row, .service-row:nth-child(even) {
-        flex-direction: column; /* Force everything to stack linearly on mobile */
-        gap: 30px;
-        text-align: center;
-    }
-    
-    .service-image-box {
-        height: 400px; /* Scales down carousel height slightly on mobile screen frames */
-    }
-}
-
-/* 5. About Section */
+/* ==========================================================================
+   About Us Section
+   ========================================================================== */
 .about-section {
     padding: 100px 8%;
-    background-color: #f9f9f9; /* Slightly off-white to contrast against the services section */
 }
 
 .about-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    max-width: 1200px;
+    gap: 80px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Text Column Configuration */
-.about-text {
-    flex: 1;
-    text-align: left;
-}
+.about-text { flex: 1.2; }
 
-.about-text span {
-    font-size: 14px;
+.sub-title {
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #ff4757; /* Matches the vibrant red color accent of the floating button */
-    font-weight: bold;
+    color: var(--accent-color); 
+    font-weight: 700;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .about-text h2 {
-    font-size: 36px;
-    color: #111;
+    font-size: clamp(28px, 3.5vw, 38px);
     margin-bottom: 20px;
-    line-height: 1.3;
+    line-height: 1.25;
+    font-weight: 800;
 }
 
 .about-text p {
-    color: #555;
+    color: var(--text-muted);
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
     margin-bottom: 20px;
 }
 
-/* Image Column Configuration */
-.about-image-box {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
+.about-image-box { flex: 0.8; }
 
 .about-img {
     width: 100%;
-    max-width: 500px;
-    height: 400px;
-    object-fit: cover; /* Crops the image neatly without distorting it */
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    height: 440px;
+    object-fit: cover; 
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* Mobile Responsiveness: Stacks columns on smaller screens */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column-reverse; /* Puts text on top, image on bottom for mobile */
+/* ==========================================================================
+   Premium Contact & Social Section Styles
+   ========================================================================== */
+.contact-section {
+    padding: 100px 8%;
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Left side direct info block panel */
+.contact-info-panel {
+    flex: 0.9;
+    background-color: #1d3a55; /* Contrast dark primary theme brand color */
+    color: #ffffff;
+    padding: 50px 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35 rgba(29, 58, 85, 0.12);
+}
+
+.contact-info-panel h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.contact-info-panel > p {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.direct-link {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+    transition: var(--transition-smooth);
+}
+
+/* Contextual dark-panel hover state adjustment for maximum readability */
+.contact-info-panel .direct-link:hover {
+    color: #38bdf8; /* High-contrast dynamic sky blue for the dark layout block */
+    border-bottom-color: #38bdf8;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-icon {
+    font-size: 24px;
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.info-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.info-item p {
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+/* Right side Social Network Panel */
+.social-connect-panel {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-connect-panel h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.social-connect-panel > p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.social-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Highly Interactive Social Hyperlink Cards */
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: var(--transition-smooth);
+}
+
+.social-card .social-icon {
+    font-size: 28px;
+    background-color: #f1f5f9;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+}
+
+.social-meta h4 {
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 3px;
+    transition: var(--transition-smooth);
+}
+
+.social-meta p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Hover States tailored to brand-specific themes */
+.social-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.fb-card:hover { border-color: #1877f2; }
+.fb-card:hover .social-icon { background-color: #e8f3ff; }
+.fb-card:hover .social-meta h4 { color: #1877f2; }
+
+.ig-card:hover { border-color: #e1306c; }
+.ig-card:hover .social-icon { background-color: #fdf0f5; }
+.ig-card:hover .social-meta h4 { color: #e1306c; }
+
+.nd-card:hover { border-color: #00b574; }
+.nd-card:hover .social-icon { background-color: #e5fbf3; }
+.nd-card:hover .social-meta h4 { color: #00b574; }
+
+.yelp-card:hover { border-color: #d32323; }
+.yelp-card:hover .social-icon { background-color: #fdf1f1; }
+.yelp-card:hover .social-meta h4 { color: #d32323; }
+
+/* ==========================================================================
+   Floating Button
+   ========================================================================== */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 16px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 5px 25px rgba(255, 71, 87, 0.35);
+    z-index: 9999; 
+    transition: var(--transition-smooth);
+    font-size: 15px;
+}
+
+.floating-btn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05) translateY(-3px); 
+    box-shadow: 0 8px 30px rgba(255, 71, 87, 0.5);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 991px) {
+    .gallery-row, .gallery-row:nth-child(even) {
+        flex-direction: column;
         gap: 40px;
     }
     
-    .about-text {
-        text-align: center;
+    .gallery-image-box { height: 350px; }
+    
+    .about-container {
+        flex-direction: column-reverse;
+        gap: 50px;
+    }
+    .about-img { height: 350px; }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
     }
     
-    .about-img {
-        height: 300px;
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-section {
+        padding: 0 5%;
+        height: 70vh;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info-panel {
+        padding: 40px 25px;
+    }
+}
+
+/* Styling for local image assets inside the social circle icons */
+.social-card .social-icon img.social-img-asset {
+    width: 24px;       /* Keeps the icon scale perfectly uniform */
+    height: 24px;
+    object-fit: contain; /* Ensures the graphic aspect ratio doesn't distort */
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+/* Optional: Slight image pop behavior on card hover */
+.social-card:hover .social-img-asset {
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Dynamic Recommendation Planner Styles
+   ========================================================================== */
+.recommendation-section {
+    padding: 100px 8%;
+}
+
+.planner-container {
+    display: flex;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.planner-form {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.planner-form h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.form-group label span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-dark);
+    background-color: #f8fafc;
+    outline: none;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    border-color: var(--primary-color);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+}
+
+.form-group input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+    accent-color: var(--primary-color);
+}
+
+/* Results Display Panel */
+.planner-result {
+    flex: 1;
+    display: flex;
+}
+
+.result-card {
+    background-color: #1d3a55; /* Perfectly matches your direct contact dark theme */
+    color: #ffffff;
+    padding: 45px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(29, 58, 85, 0.15);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.15);
+    color: #38bdf8; /* High-contrast crisp sky blue used on contact info hover */
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.result-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.package-desc {
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.price-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 30px;
+}
+
+.price-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.price-amount {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 2px 0 6px 0;
+}
+
+.price-note {
+    font-size: 11px;
+    color: #94a3b8;
+    display: block;
+}
+
+.package-includes h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f1f5f9;
+}
+
+.package-includes ul {
+    list-style: none;
+}
+
+.package-includes ul li {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 22px;
+}
+
+.package-includes ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #00b574; /* Professional success green match */
+    font-weight: 700;
+}
+
+.planner-submit-btn {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    padding: 16px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.planner-submit-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* Quick Micro-interaction fade class */
+.animate-fade {
+    animation: plannerFade 0.4s ease-out;
+}
+
+@keyframes plannerFade {
+    from { opacity: 0.6; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Alignment */
+@media (max-width: 991px) {
+    .planner-container {
+        flex-direction: column;
+        gap: 30px;
     }
 }

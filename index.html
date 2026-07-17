@@ -4,116 +4,410 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HC Remodeling & Flooring</title>
-    <link rel="icon" type="image/svg+xml" href="Images/HCLogo.svg">
+    <link rel="icon" type="image/x+xml" href="Images/HCLogo.svg">
     <link rel="stylesheet" href="hc.css">
 </head>
 <body>
 
+    <!-- Header / Navigation -->
     <header class="navbar">
-        <div class="logo"><img src="Images/HCLogo.svg" alt="HC Logo"></div>
-        <nav>
+        <div class="logo">
+            <img src="Images/HCLogo.svg" alt="HC Remodeling & Flooring Logo">
+        </div>
+        <nav aria-label="Main Navigation">
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>Only the Best</h1>
-            <p>Remodeling for your home, office, and commercial space</p>
-            <a class="hero-btn" href="">Visit us</a>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Serving All DFW!</h1>
+                <p>HOME REMODELING AND FLOORING</p>
+                <a class="hero-btn" href="#contact">Get a Quote</a>
+            </div>
+        </section>
 
-    <!-- Services -->
-    <section class="services-section" id="services">
-        <div class="section-header">
-            <h2>Services Offered</h2>
-            <p>Experience high quality remodeling & floor planning of your home, offices, and commercial spaces.</p>
-        </div>
-
-        <div class="services-container">
-            <div class="service-row">
-                <div class="service-image-box">
-                    <img src="Images/AuthenticSource.jpg" alt="100% Authentic Products" class="service-img">
-                </div>
-                <div class="service-text-box">
-                    <h3>Home Remodeling + Flooring</h3>
-                    <p>Bring your vision to life with complete home transformations. We seamlessly blend stunning, high-durability flooring with custom remodeling to elevate your entire living space, room by beautiful room.</p>
-                    <hr class="service-divider">
-
-                    <ul class="service-specifics">
-                        <li>Living Room</li>
-                        <li>Kitchen</li>
-                        <li>Bathroom</li>
-                    </ul>                
-                </div>
+        <!-- Gallery / Showcase Section [BACKGROUND: ALTERNATE OBLIQUE LIGHT] -->
+        <section class="gallery-section bg-alt" id="gallery">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>Experience high-quality remodeling & floor planning designed for your home.</p>
             </div>
 
-            <div class="service-row">
-                <div class="service-image-box">
-                    <img src="Images/HandPicked.jpg" alt="Hand-Picked Curation" class="service-img">
+            <div class="gallery-container">
+                <!-- Living Room Row -->
+                <div class="gallery-row">
+                    <div class="gallery-image-box slide-living-room">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="gallery-text-box">
+                        <span class="category-tag">Featured Project</span>
+                        <h3>Living Room Remodeling & Flooring</h3>
+                        <p>Bring your vision to life with complete home transformations. We seamlessly blend stunning, high-durability flooring with custom remodeling to elevate your entire living space, room by beautiful room.</p>              
+                    </div>
                 </div>
-                <div class="service-text-box">
-                    <h3>Office Remodeling + Flooring</h3>
-                    <p>Design a workspace that inspires productivity and leaves a lasting impression. From high-durability commercial flooring to modern, collaborative layouts, we build professional environments tailored to your business needs.</p>
-                    <hr class="service-divider">
 
-                    <ul class="service-specifics">
-                        <li>Living Room</li>
-                        <li>Kitchen</li>
-                        <li>Bathroom</li>
-                    </ul>                
+                <!-- Bedroom Row -->
+                <div class="gallery-row">
+                    <div class="gallery-image-box slide-bedroom">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="gallery-text-box">
+                        <span class="category-tag">Sanctuary Design</span>
+                        <h3>Bedroom Remodeling & Flooring</h3>
+                        <p>Create your ultimate personal sanctuary. We pair quiet, warm, and elegant flooring with custom remodeling to transform your bedroom into a peaceful retreat designed uniquely for you.</p>               
+                    </div>
+                </div>
+
+                <!-- Kitchen Row -->
+                <div class="gallery-row">
+                    <div class="gallery-image-box slide-kitchen">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="gallery-text-box">
+                        <span class="category-tag">High Performance</span>
+                        <h3>Kitchen Remodeling & Flooring</h3>
+                        <p>High-performance design meets culinary style. We pair ultra-durable, water-resistant flooring with custom kitchen remodeling to create spectacular, functional spaces built to withstand daily life beautifully.</p>               
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Core Services Grid [BACKGROUND: PURE WHITE] -->
+        <section class="services-section bg-white" id="services">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Professional craftsmanship tailored to your flooring and renovation needs.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>1. Flooring Repair</h3>
+                    <p>Fix scratches, dents, water damage, or loose planks. We restore the integrity and beauty of your existing floors seamlessly.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>2. Hardwood Refinishing</h3>
+                    <p>Breathe new life into dull or worn hardwood floors. Sanding, staining, and protective coatings bring back original brilliance.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>3. Installation Services</h3>
+                    <p>Flawless installation of hardwood, luxury vinyl plank (LVP), laminate, and engineered wood tailored perfectly to your space.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>4. Consultation & Measurement</h3>
+                    <p>Accurate, professional measurements and expert advice to help you choose the best materials for your lifestyle and budget.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧱</div>
+                    <h3>5. Tile Installation</h3>
+                    <p>Durable and precisely aligned tile placement for kitchens, bathrooms, backsplashes, and entryways.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>6. Custom Tile Design</h3>
+                    <p>Elevate your space with unique patterns, custom mosaics, and bespoke layouts designed to make a statement.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Package Recommendation Section [BACKGROUND: ALTERNATE OBLIQUE LIGHT] -->
+        <section class="recommendation-section bg-alt" id="planner">
+            <div class="section-header">
+                <h2>Find Your Service Package</h2>
+                <p>Input your project details below to find the right service tier for your space automatically.</p>
+            </div>
+
+            <div class="planner-container">
+                <!-- Inputs Form Panel -->
+                <div class="planner-form">
+                    <h3>Project Details</h3>
+                    <form id="recommendationForm" onsubmit="event.preventDefault();">
+                        
+                        <div class="form-group">
+                            <label for="projectScope">What do you want done?</label>
+                            <select id="projectScope">
+                                <option value="repair">Flooring Repair & Patchwork</option>
+                                <option value="installation" selected>New Flooring Installation</option>
+                                <option value="remodel">Complete Room Remodel</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="squareFootage">Approx. Square Footage: <span id="sqftValue">500</span> sqft</label>
+                            <input type="range" id="squareFootage" min="50" max="3000" step="50" value="500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="materialPreference">Material Preference</label>
+                            <select id="materialPreference">
+                                <option value="lvp" selected>Laminate / Luxury Vinyl Plank (LVP)</option>
+                                <option value="tile">Tile / Custom Stone layouts</option>
+                                <option value="hardwood">Premium Solid Hardwood</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Live Results Output Panel -->
+                <div class="planner-result">
+                    <div class="result-card animate-fade">
+                        <span class="package-badge" id="packageTier">Recommended Tier</span>
+                        <h3 id="packageName">Complete Transformation</h3>
+                        
+                        <!-- Dynamic Status Indicator Box -->
+                        <div class="tier-status-box">
+                            <span class="status-label">Project Scale Status</span>
+                            <div class="status-value" id="packageScaleLabel">Medium Residential Scope</div>
+                        </div>
+
+                        <p class="package-desc" id="packageDesc">Perfect for upgrading your space with durable, fresh flooring built to perform beautifully under high foot traffic.</p>
+
+                        <div class="package-includes">
+                            <h4>What's Included in This Service:</h4>
+                            <ul id="packageFeatures">
+                                <li>Meticulous subfloor prep & leveling</li>
+                                <li>Premium moisture-barrier underlayment</li>
+                                <li>Flawless trim fitting & transition moldings</li>
+                                <li>Post-install cleanup & debris disposal</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contact" class="planner-submit-btn">Select This Package</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section [BACKGROUND: ALTERNATE OBLIQUE LIGHT] -->
+        <section class="about-section bg-alt" id="about">
+            <div class="about-container">
+                <div class="about-text">
+                    <span class="sub-title">Our Story</span>
+                    <h2>Bringing Craftsmanship and Quality to Your Doorstep</h2>
+                    <p>HC Remodeling & Flooring started with a simple passion: turning houses into homes through high-quality materials and expert craftsmanship. We realized how overwhelming home improvement can be—dealing with compromises, scheduling issues, and material overloads.</p>
+                    <p>That’s why we handle the hard work. From sourcing premium materials to performing flawless installations, we manage every detail of the design, planning, and build out with transparency and care.</p>
+                </div>
+                <div class="about-image-box">
+                    <img src="Images/HCLogo.svg" alt="Our team discussing flooring selections" class="about-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section [BACKGROUND: PURE WHITE] -->
+        <section class="contact-section bg-white" id="contact">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have a project in mind? Call us directly or connect with us on social media to see our latest project updates.</p>
+            </div>
+
+            <div class="contact-container">
+                <!-- Direct Communication Info -->
+                <div class="contact-info-panel">
+                    <h3>Direct Contact</h3>
+                    <p>We are active and ready to discuss your next home upgrade. Reach out to us anytime!</p>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p><a href="tel:+12147773411" class="direct-link">(214) 777-3411</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:estimates@hcremodelingdfw.com" class="direct-link">estimates@hcremodelingdfw.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Service Area</h4>
+                            <p>Dallas-Fort Worth Metroplex (DFW), Texas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Hyperlink Cards -->
+                <div class="social-connect-panel">
+                    <h3>Follow & Review Us</h3>
+                    <p>Check out our real-time project transformations, client testimonials, and before/after galleries.</p>
+                    
+                    <div class="social-grid">
+                        <!-- Facebook Card -->
+                        <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" class="social-card fb-card">
+                            <div class="social-icon">
+                                <img src="Images/facebook.png" alt="Facebook Icon" class="social-img-asset">
+                            </div>
+                            <div class="social-meta">
+                                <h4>Facebook</h4>
+                                <p>Join our DFW community & see live updates</p>
+                            </div>
+                        </a>
+
+                        <!-- Instagram Card -->
+                        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" class="social-card ig-card">
+                            <div class="social-icon">
+                                <img src="Images/instagram.png" alt="Instagram Icon" class="social-img-asset">
+                            </div>
+                            <div class="social-meta">
+                                <h4>Instagram</h4>
+                                <p>Browse our design portfolio & styling tips</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Call to Action -->
+    <a class="floating-btn" href="#contact" aria-label="Contact HC Remodeling">
+        <span>Get A Quote</span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scopeInput = document.getElementById('projectScope');
+            const sqftInput = document.getElementById('squareFootage');
+            const sqftValueLabel = document.getElementById('sqftValue');
+            const materialInput = document.getElementById('materialPreference');
             
+            const packageTier = document.getElementById('packageTier');
+            const packageName = document.getElementById('packageName');
+            const packageScaleLabel = document.getElementById('packageScaleLabel');
+            const packageDesc = document.getElementById('packageDesc');
+            const packageFeatures = document.getElementById('packageFeatures');
+            const resultCard = document.querySelector('.result-card');
 
-            <div class="service-row">
-                <div class="service-image-box">
-                    <img src="Images/DoubleWrap.jpg" alt="Fast & Safe Shipping" class="service-img">
-                </div>
-                <div class="service-text-box">
-                    <h3>Commercial Spaces Remodeling + Flooring</h3>
-                    <p>Elevate your brand with spaces designed for high performance and style. We combine ultra-durable, commercial-grade flooring with custom remodeling to create welcoming environments that withstand heavy foot traffic and look spectacular.</p>
-                    <hr class="service-divider">
+            // Package Configuration Database
+            const packageData = {
+                essential: {
+                    tier: "Essential Package",
+                    name: "Target Surface Maintenance",
+                    desc: "Perfect for quick repairs, matching broken sections, or basic low-scale area surface updates.",
+                    features: [
+                        "Focused inspection of local subfloor stability",
+                        "Precision cutting and clean replacement layers",
+                        "Tonal alignment to match existing surrounding areas",
+                        "Post-repair clean up & rapid site restoration"
+                    ]
+                },
+                complete: {
+                    tier: "Complete Package",
+                    name: "Full Transformation Service",
+                    desc: "Our high-efficiency residential package covering complete floor-to-wall preparation, leveling, and full material execution.",
+                    features: [
+                        "Comprehensive subfloor diagnostics & structural leveling",
+                        "Acoustic underlayment & moisture barriers included",
+                        "Seamless edge-to-edge profile installations",
+                        "Complete debris hauling & transition trimming layouts"
+                    ]
+                },
+                luxe: {
+                    tier: "Luxe Tailored Package",
+                    name: "Premium Custom Remodel",
+                    desc: "Bespoke high-scale installation tailored explicitly for extensive plans, premium woods/stone, or massive spatial designs.",
+                    features: [
+                        "Premium priority sourcing & material design advisory",
+                        "Heavy-duty underlying membrane applications",
+                        "Complex pattern execution (e.g., custom stone or herringbone)",
+                        "Dedicated site manager review & extended warranty assurance"
+                    ]
+                }
+            };
 
-                    <ul class="service-specifics">
-                        <li>Living Room</li>
-                        <li>Kitchen</li>
-                        <li>Bathroom</li>
-                    </ul>                
-                </div>
-            </div>
-        </div>
-    </section>
+            function calculatePackage() {
+                const scope = scopeInput.value;
+                const sqft = parseInt(sqftInput.value, 10);
+                const material = materialInput.value;
 
-    <hr class="service-divider">
-    
-    <section class="about-section" id="about">
-        <div class="about-container">
-            
-            <div class="about-text">
-                <span>Our Story</span>
-                <h2>Bringing Craftsmanship and Quality to Your Doorstep</h2>
-                <p>
-                    HC Remodeling & Flooring started with a simple passion: turning houses into homes through high-quality materials and expert craftsmanship. We realized how overwhelming home improvement could be for homeowners—dealing with endless material choices, unreliable contractors, and quality compromises.
-                </p>
-                <p>
-                    That’s why we do the hard work for you. From sourcing premium, durable flooring to executing flawless renovations, we handle every detail of the design, planning, and installation—bringing your dream space to life with honesty, precision, and care.
-                </p>
-            </div>
+                sqftValueLabel.textContent = sqft;
 
-            <div class="about-image-box">
-                <img src="Images/aboutus.jpg" alt="Sourcing products in Japan" class="about-img">
-            </div>
+                let selectedKey = "complete";
+                let scaleText = "Standard Residential Size";
 
-        </div>
-    </section>
+                // 1. Establish the Square Footage Scale Context Labels
+                if (sqft < 300) {
+                    scaleText = "Small Area Focus Block";
+                } else if (sqft >= 300 && sqft <= 1200) {
+                    scaleText = "Standard Residential Suite";
+                } else {
+                    scaleText = "High-Volume / Open Concept Area";
+                }
 
-    <a class="floating-btn" href="">Visit us</a>
+                // 2. Threshold Package Tier Logic Core
+                if (scope === 'repair') {
+                    // Repairs default to Essential regardless of square footage
+                    selectedKey = "essential";
+                } else {
+                    // For Installations or Remodels, step up packages based on square footage scale gates
+                    if (sqft < 250) {
+                        selectedKey = "essential";
+                    } else if (sqft >= 250 && sqft < 1000) {
+                        selectedKey = "complete";
+                        // Upgrade standard installs if premium wood or extensive remodel is picked
+                        if (scope === 'remodel' || material === 'hardwood') {
+                            selectedKey = "luxe";
+                        }
+                    } else {
+                        // High volume spatial settings automatically call for heavy-duty Luxe custom package tiers
+                        selectedKey = "luxe";
+                    }
+                }
+
+                // 3. Render modifications directly into DOM text elements
+                const data = packageData[selectedKey];
+                
+                packageTier.textContent = data.tier;
+                packageName.textContent = data.name;
+                packageScaleLabel.textContent = `${scaleText} (${sqft} sqft)`;
+                packageDesc.textContent = data.desc;
+
+                // Empty and rebuild features list components
+                packageFeatures.innerHTML = '';
+                data.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    packageFeatures.appendChild(li);
+                });
+
+                // Micro-animation bounce re-trigger
+                resultCard.classList.remove('animate-fade');
+                void resultCard.offsetWidth; 
+                resultCard.classList.add('animate-fade');
+            }
+
+            // Hook input changes to tracking triggers
+            scopeInput.addEventListener('change', calculatePackage);
+            sqftInput.addEventListener('input', calculatePackage);
+            materialInput.addEventListener('change', calculatePackage);
+
+            // Execute on initial run setup
+            calculatePackage();
+        });
+    </script>    
 
 </body>
 </html>
